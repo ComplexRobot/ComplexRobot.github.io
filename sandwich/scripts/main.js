@@ -332,10 +332,10 @@ function AllInvalidsNotSet() {
   return true;
 }
 
-function SelectionsInvalid(includeProhibited = true) {
+function SelectionsInvalid(ignoreProhibited = true) {
   for (const div of document.getElementsByClassName("warningsign")) {
     if (div.style.getPropertyValue("visibility") != "hidden"
-      && (!includeProhibited || div.style.getPropertyValue("background-image").search("prohibited") == -1))
+      && (!ignoreProhibited || div.style.getPropertyValue("background-image").search("prohibited") == -1))
       return true;
   }
   return false;
