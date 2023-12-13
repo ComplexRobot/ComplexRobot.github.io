@@ -519,6 +519,10 @@ async function GenerateLength3(values) {
       const filtered = values.filter((value) => { return value.power != "Title Power"; });
       const filteredByType = filtered.filter((value) => { return value.type != "Not Set"; });
       const titlePower = values.filter((value) => { return value.power == "Title Power"; })[0];
+      if (filteredByType.length == 0) {
+        SetInvalid(values[0].typeId);
+        return false;
+      }
       if (titlePower.type != filteredByType[0].type && titlePower.type != "Not Set")
         SetInvalid(titlePower.typeId);
       return await GenerateLength2(filtered);
