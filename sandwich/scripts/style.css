@@ -217,7 +217,7 @@ body {
 .recipe {
   flex-wrap: wrap;
   gap: 10px 0;
-  background-color: #101018;
+  background-color: #202030;
   width: fit-content;
   height: fit-content;
   border: outset 3px #404040;
@@ -258,7 +258,7 @@ body {
   font-size: 16px;
   overflow: visible;
   text-wrap: wrap;
-  background-color: #101018;
+  background-color: #202030;
   margin-top: 44px;
   height: fit-content;
   border: outset 3px #808080;
