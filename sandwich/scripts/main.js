@@ -39,11 +39,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
   document.getElementById("type2").parentElement.addEventListener("click", (event) => { ShowSelector("type2", "typeselector"); });
   document.getElementById("type3").parentElement.addEventListener("click", (event) => { ShowSelector("type3", "typeselector"); });
   for (const selectionDiv of document.getElementsByClassName("powerselection")) {
-    selectionDiv.parentElement.addEventListener("click", (event) => { UpdateSelection(event.target.children[0], "powerselector"); });
+    selectionDiv.parentElement.children[1].addEventListener("click",
+      (event) => { UpdateSelection(event.target.parentElement.children[0], "powerselector"); });
     selectionDiv.addEventListener("click", (event) => { UpdateSelection(event.target, "powerselector"); });
   }
   for (const selectionDiv of document.getElementsByClassName("typeselection")) {
-    selectionDiv.parentElement.addEventListener("click", (event) => { UpdateSelection(event.target.children[0], "typeselector"); });
+    selectionDiv.parentElement.children[1].addEventListener("click",
+      (event) => { UpdateSelection(event.target.parentElement.children[0], "typeselector"); });
     selectionDiv.addEventListener("click", (event) => { UpdateSelection(event.target, "typeselector"); });
   }
   document.getElementsByClassName("recipeslistwrapper")[0].style.setProperty("top",

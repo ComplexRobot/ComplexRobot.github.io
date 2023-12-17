@@ -1,0 +1,384 @@
+body {
+  color: #f0f0f0;
+  background-color: #101010;
+}
+
+.selector, .fillingslist, .condimentslist, .recipe, .recipeslist, .recipetitle, .powerschosen, .typeschosen {
+  display: flex;
+}
+
+.selector > * {
+  padding: 4px;
+  overflow: visible;
+  margin-top: auto;
+}
+
+.selector {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  max-width: 100%;
+  border-bottom: outset 4px #808080;
+  border-right: outset 4px #808080;
+  border-bottom-right-radius: 5px;
+}
+
+.herbapane {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  max-height: 80px;
+}
+
+.selectionwrapper, .powerchoice, .typechoice {
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+}
+
+.powerchoice, .typechoice {
+  border: outset 3px #808080;
+  border-radius: 20px;
+}
+
+.powerchoice {
+  border-bottom-width: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  height: 43px;
+  margin-bottom: -3px;
+}
+
+.typechoice {
+  border-top-width: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  height: 43px;
+  margin-top: -3px;
+  background-position-y: bottom;
+}
+
+.powerchoicetext, .typechoicetext, .powerselection, .typeselection, .herbaselection, .filling > *, .condiment > * {
+  text-align: center;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 10px;
+  text-shadow: 1px 1px black;
+  user-select: none;
+  z-index: 1;
+}
+
+.powerchoicetext, .typechoicetext {
+  text-overflow: clip;
+}
+
+.powerchoicetext {
+  margin-bottom: 3px;
+}
+
+.hoverarea {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  z-index: 4;
+}
+
+.selectionwrapper:has(> .hoverarea:hover) > *:not(.checkmark):not(.hoverarea),
+.powerchoice:has(> .hoverarea:hover) > *:is(.powerchoicetext, .typechoicetext),
+.typechoice:has(> .hoverarea:hover) > *:is(.powerchoicetext, .typechoicetext),
+#selected > *:is(.powerchoicetext, .typechoicetext),
+*:has(~ #selected) > *:is(.powerchoicetext, .typechoicetext),
+#selected ~ * > *:is(.powerchoicetext, .typechoicetext) {
+  font-size: 16px;
+  overflow: visible;
+  margin-top: 30px;
+  height: fit-content;
+  z-index: 2;
+  text-shadow: 1px 1px black, 2px 2px black;
+}
+
+.powerchoice:has(> .hoverarea:hover) > .powerchoicetext {
+  margin-top: 27px;
+}
+
+*:has(~ #selected) > *:is(.powerchoicetext, .typechoicetext), #selected ~ * > *:is(.powerchoicetext, .typechoicetext) {
+  color: #787878;
+}
+
+#selected > *:is(.powerchoicetext, .typechoicetext),
+*:has(~ #selected) > *:is(.powerchoicetext, .typechoicetext),
+#selected ~ * > *:is(.powerchoicetext, .typechoicetext) {
+  background-color: #202020;
+  border: solid 3px #808080;
+  border-bottom-width: 0;
+  padding-left: 2px;
+  padding-right: 2px;
+  overflow: hidden;
+  text-overflow: clip;
+  text-align: left;
+  margin-top: 35px;
+  margin-left: -3px;
+  margin-right: 0;
+  width: 50px;
+  position: absolute;
+}
+
+#selected.powerchoice > *:is(.powerchoicetext, .typechoicetext),
+*:has(~ #selected.powerchoice) > *:is(.powerchoicetext, .typechoicetext),
+#selected.powerchoice ~ * > *:is(.powerchoicetext, .typechoicetext) {
+  margin-top: 32px;
+}
+
+*:has(~ #selected) > *:is(.powerchoicetext, .typechoicetext):not(#power1, #type1) {
+  border-right-width: 0;
+}
+
+#selected ~ * > *:is(.powerchoicetext, .typechoicetext):not(#power3, #type3) {
+  border-left-width: 0;
+}
+
+*:has(~ #selected) > *:is(#power1, #type1) {
+  border-top-left-radius: 10px;
+}
+
+#selected ~ * > *:is(#power3, #type3) {
+  border-top-right-radius: 10px;
+}
+
+#selected > *:is(.powerchoicetext, .typechoicetext) {
+  border-radius: 10px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  z-index: 3;
+}
+
+*:has(~ *:is(*:hover)):is(.powerchoice, .typechoice):not(*:is(*:hover)):not(#selected):not(*:has(~ #selected)):not(#selected ~ *) > *:not(.warningsign),
+*:is(*:hover) ~ *:is(.powerchoice, .typechoice):not(*:is(*:hover)):not(#selected):not(*:has(~ #selected)):not(#selected ~ *) > *:not(.warningsign),
+*:has(> *:is(*:hover), > #selected) ~ * > *:is(.powerchoice, .typechoice):not(*:is(*:hover)):not(#selected):not(*:has(~ #selected)):not(#selected ~ *) > *:not(.warningsign),
+*:has(~ * > *:is(*:hover), ~ * > #selected) > *:is(.powerchoice, .typechoice):not(*:is(*:hover)):not(#selected):not(*:has(~ #selected)):not(#selected ~ *) > *:not(.warningsign),
+*:has(> * > *:is(*:hover), > * > #selected) ~ .herbapane > *:not(*:is(*:hover)) > *:not(.checkmark),
+.selectionwrapper:hover ~ * > *:not(.checkmark), *:has(~ .selectionwrapper:hover) > *:not(.checkmark) {
+  opacity: 0.5;
+}
+
+*:has(> #selected) ~ * > .typechoice > .hoverarea {
+  pointer-events: none;
+}
+
+.selectionwrapper:hover, .powerchoice:hover, .typechoice:hover {
+  cursor: pointer;
+}
+
+.powerselector, .typeselector {
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  visibility: hidden;
+  background-color: #202020;
+  border: inset 4px #808080;
+  border-radius: 3px;
+  z-index: 2;
+}
+
+.powerselector {
+  max-width: 200px;
+}
+
+.typeselector {
+  max-width: 240px;
+}
+
+.warningsign {
+  position: absolute;
+  visibility: hidden;
+  width: 30px;
+  height: 30px;
+  opacity: 0.8;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.checkmark {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-image: url('../sprites/checkmark.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.recipeleft {
+  max-width: 180px;
+}
+
+.reciperight {
+  padding-left: 10px;
+  border-left: outset 3px #404040;
+}
+
+.recipe {
+  flex-wrap: wrap;
+  gap: 10px 0;
+  background-color: #202030;
+  width: fit-content;
+  height: fit-content;
+  border: outset 3px #404040;
+  padding: 10px;
+  border-radius: 6px;
+  overflow: visible;
+}
+
+.filling, .condiment, .filling:hover, .condiment:hover {
+  margin: -5px;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+}
+
+.filling:hover, .condiment:hover {
+  margin: -15px;
+  width: 60px;
+  height: 60px;
+  overflow: visible;
+  z-index: 2;
+}
+
+.filling > *, .condiment > * {
+  visibility: hidden;
+  width: unset;
+  height: unset;
+  line-height: unset;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.filling:hover > *, .condiment:hover > * {
+  visibility: visible;
+  font-size: 16px;
+  overflow: visible;
+  text-wrap: wrap;
+  background-color: #202030;
+  margin-top: 44px;
+  height: fit-content;
+  border: outset 3px #808080;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+.filling {
+  z-index: 1;
+}
+
+.recipetitle {
+  gap: 4px;
+  border-bottom: solid 1px #808080;
+  padding-right: 2px;
+}
+
+.recipeid {
+  font-weight: bold;
+  font-style: italic;
+  color: #808080;
+  padding-right: 3px;
+}
+
+.recipename {
+  font-weight: bold;
+}
+
+.recipeslistwrapper {
+  position: fixed;
+  left: 0;
+  max-width: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0;
+  margin: 0;
+  padding: 0;
+}
+
+.info, .footer {
+  text-shadow: 1px 1px #202080;
+}
+
+.footer {
+  margin-top: auto;
+  text-align: center;
+  font-size: 12px;
+  padding-top: 10px;
+}
+
+img {
+  width: 12px;
+  height: 12px;
+  border: 0;
+}
+
+.footer > * > img {
+  width: 20px;
+  height: 20px;
+}
+
+a {
+  color: #0080ff;
+  text-shadow: unset;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #804040;
+}
+
+.generatebutton {
+  width: 80px;
+  height: 80px;
+}
+
+.generatebutton:hover {
+  content: url('../sprites/sandwich.png');
+}
+
+.recipeslist {
+  flex-wrap: wrap;
+  gap: 10px;
+  text-shadow: 2px 2px #202080;
+  height: fit-content;
+}
+
+.fillingslist, .condimentslist {
+  overflow: visible;
+  height: 30px;
+}
+
+.mealpower {
+  font-size: 12px;
+  display: flex;
+  gap: 4px;
+  margin-bottom: 4px;
+  text-wrap: nowrap;
+}
+
+.type {
+  margin-right: auto;
+  margin-top: auto;
+}
+
+.level {
+  text-align: right;
+  text-wrap: nowrap;
+}

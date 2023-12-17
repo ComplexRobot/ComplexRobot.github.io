@@ -4,7 +4,7 @@
   <head>
     <title>Sandwich Lookup - Pok&eacute;mon Scarlet/Violet</title>
     <link rel="icon" type="image/png" href="sprites/sandwich-icon.png">
-    <link rel="stylesheet" href="scripts/style.css">
+    <link rel="stylesheet" href="scripts/style-1.css">
     <meta name="description" content="Lookup any Pokemon sandwich recipe by power and type at the click of a button.">
     <meta name="keywords" content="pokemon,pokemon scarlet,pokemon violet,sandwich,sandwich recipe,encounter power,raid power,level 3,shiny hunting,pokemon battle,tera raid,dragon,dark,fairy">
     <meta http-equiv="charset" content="text/html; charset=utf-8">
@@ -20,28 +20,34 @@
           <div class=powerchoice>
             <div class=powerchoicetext id="power1">Encounter Power</div>
             <div class=warningsign id=power1warning></div>
+            <div class=hoverarea></div>
           </div>
           <div class=powerchoice>
             <div class=powerchoicetext id="power2">Sparkling Power</div>
             <div class=warningsign id=power2warning></div>
+            <div class=hoverarea></div>
           </div>
           <div class=powerchoice>
             <div class=powerchoicetext id="power3">Not Set</div>
             <div class=warningsign id=power3warning></div>
+            <div class=hoverarea></div>
           </div>
         </div>
         <div class=typeschosen>
           <div class=typechoice>
             <div class=typechoicetext id="type1">Dragon</div>
             <div class=warningsign id=type1warning></div>
+            <div class=hoverarea></div>
           </div>
           <div class=typechoice>
             <div class=typechoicetext id="type2">Not Set</div>
             <div class=warningsign id=type2warning></div>
+            <div class=hoverarea></div>
           </div>
           <div class=typechoice>
             <div class=typechoicetext id="type3">Not Set</div>
             <div class=warningsign id=type3warning></div>
+            <div class=hoverarea></div>
           </div>
         </div>
       </div>
@@ -49,22 +55,27 @@
         <div class=selectionwrapper>
           <div class=herbaselection id="Bitter"></div>
           <div class=checkmark id=Bittercheck></div>
+          <div class=hoverarea></div>
         </div>
         <div class=selectionwrapper>
           <div class=herbaselection id="Spicy"></div>
           <div class=checkmark id=Spicycheck></div>
+          <div class=hoverarea></div>
         </div>
         <div class=selectionwrapper>
           <div class=herbaselection id="Salty"></div>
           <div class=checkmark id=Saltycheck></div>
+          <div class=hoverarea></div>
         </div>
         <div class=selectionwrapper>
           <div class=herbaselection id="Sour"></div>
           <div class=checkmark id=Sourcheck></div>
+          <div class=hoverarea></div>
         </div>
         <div class=selectionwrapper>
           <div class=herbaselection id="Sweet"></div>
           <div class=checkmark id=Sweetcheck></div>
+          <div class=hoverarea></div>
         </div>
       </div>
     </div>
@@ -91,7 +102,7 @@
         <img src="sprites/warning-sign.webp">/<img src="sprites/prohibited.webp">: Invalid selection.
       </div>
       <div class=footer>
-        v1.0.0<br>
+        v1<br>
         12/2023<br>
         <a href="https://github.com/ComplexRobot/ComplexRobot.github.io/discussions" target="_blank">
           <img src="sprites/github-mark-white.png" title="GitHub">
@@ -99,39 +110,39 @@
       </div>
     </div>
     <div class=powerselector>
-      <div class=selectionwrapper><div class=powerselection id="Encounter"></div></div>
-      <div class=selectionwrapper><div class=powerselection id="Exp-Point"></div></div>
-      <div class=selectionwrapper><div class=powerselection id="Raid"></div></div>
-      <div class=selectionwrapper><div class=powerselection id="Egg"></div></div>
-      <div class=selectionwrapper><div class=powerselection id="Sparkling"></div></div>
-      <div class=selectionwrapper><div class=powerselection id="Catching"></div></div>
-      <div class=selectionwrapper><div class=powerselection id="Item-Drop"></div></div>
-      <div class=selectionwrapper><div class=powerselection id="Teensy"></div></div>
-      <div class=selectionwrapper><div class=powerselection id="Humungo"></div></div>
-      <div class=selectionwrapper><div class=powerselection id="Title"></div></div>
-      <div class=selectionwrapper><div class=powerselection id="Not Set"></div></div>
+      <div class=selectionwrapper><div class=powerselection id="Encounter"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=powerselection id="Exp-Point"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=powerselection id="Raid"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=powerselection id="Egg"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=powerselection id="Sparkling"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=powerselection id="Catching"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=powerselection id="Item-Drop"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=powerselection id="Teensy"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=powerselection id="Humungo"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=powerselection id="Title"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=powerselection id="Not Set"></div><div class=hoverarea></div></div>
       <div class=checkmark></div>
     </div>
     <div class=typeselector>
-      <div class=selectionwrapper><div class=typeselection id="Normal"></div></div>
-      <div class=selectionwrapper><div class=typeselection id="Fighting"></div></div>
-      <div class=selectionwrapper><div class=typeselection id="Flying"></div></div>
-      <div class=selectionwrapper><div class=typeselection id="Poison"></div></div>
-      <div class=selectionwrapper><div class=typeselection id="Ground"></div></div>
-      <div class=selectionwrapper><div class=typeselection id="Rock"></div></div>
-      <div class=selectionwrapper><div class=typeselection id="Bug"></div></div>
-      <div class=selectionwrapper><div class=typeselection id="Ghost"></div></div>
-      <div class=selectionwrapper><div class=typeselection id="Steel"></div></div>
-      <div class=selectionwrapper><div class=typeselection id="Fire"></div></div>
-      <div class=selectionwrapper><div class=typeselection id="Water"></div></div>
-      <div class=selectionwrapper><div class=typeselection id="Grass"></div></div>
-      <div class=selectionwrapper><div class=typeselection id="Electric"></div></div>
-      <div class=selectionwrapper><div class=typeselection id="Psychic"></div></div>
-      <div class=selectionwrapper><div class=typeselection id="Ice"></div></div>
-      <div class=selectionwrapper><div class=typeselection id="Dragon"></div></div>
-      <div class=selectionwrapper><div class=typeselection id="Dark"></div></div>
-      <div class=selectionwrapper><div class=typeselection id="Fairy"></div></div>
-      <div class=selectionwrapper><div class=typeselection id="Not Set"></div></div>
+      <div class=selectionwrapper><div class=typeselection id="Normal"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=typeselection id="Fighting"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=typeselection id="Flying"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=typeselection id="Poison"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=typeselection id="Ground"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=typeselection id="Rock"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=typeselection id="Bug"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=typeselection id="Ghost"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=typeselection id="Steel"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=typeselection id="Fire"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=typeselection id="Water"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=typeselection id="Grass"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=typeselection id="Electric"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=typeselection id="Psychic"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=typeselection id="Ice"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=typeselection id="Dragon"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=typeselection id="Dark"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=typeselection id="Fairy"></div><div class=hoverarea></div></div>
+      <div class=selectionwrapper><div class=typeselection id="Not Set"></div><div class=hoverarea></div></div>
       <div class=checkmark></div>
     </div>
   </body>
