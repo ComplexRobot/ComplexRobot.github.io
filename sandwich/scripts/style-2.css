@@ -83,10 +83,19 @@ body {
   margin-bottom: 3px;
 }
 
-.selectionwrapper:hover > *:not(.checkmark), .powerchoice:hover > *:not(.warningsign), .typechoice:hover > *:not(.warningsign),
-#selected > *:not(.warningsign),
-*:has(~ #selected) > *:not(.warningsign),
-#selected ~ * > *:not(.warningsign) {
+.hoverarea {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  z-index: 4;
+}
+
+.selectionwrapper:has(> .hoverarea:hover) > *:not(.checkmark):not(.hoverarea),
+.powerchoice:has(> .hoverarea:hover) > *:is(.powerchoicetext, .typechoicetext),
+.typechoice:has(> .hoverarea:hover) > *:is(.powerchoicetext, .typechoicetext),
+#selected > *:is(.powerchoicetext, .typechoicetext),
+*:has(~ #selected) > *:is(.powerchoicetext, .typechoicetext),
+#selected ~ * > *:is(.powerchoicetext, .typechoicetext) {
   font-size: 16px;
   overflow: visible;
   margin-top: 30px;
@@ -95,17 +104,17 @@ body {
   text-shadow: 1px 1px black, 2px 2px black;
 }
 
-.powerchoice:hover > *:not(.warningsign) {
+.powerchoice:has(> .hoverarea:hover) > .powerchoicetext {
   margin-top: 27px;
 }
 
-*:has(~ #selected) > *:not(.warningsign), #selected ~ * > *:not(.warningsign) {
+*:has(~ #selected) > *:is(.powerchoicetext, .typechoicetext), #selected ~ * > *:is(.powerchoicetext, .typechoicetext) {
   color: #787878;
 }
 
-#selected > *:not(.warningsign),
-*:has(~ #selected) > *:not(.warningsign),
-#selected ~ * > *:not(.warningsign) {
+#selected > *:is(.powerchoicetext, .typechoicetext),
+*:has(~ #selected) > *:is(.powerchoicetext, .typechoicetext),
+#selected ~ * > *:is(.powerchoicetext, .typechoicetext) {
   background-color: #202020;
   border: solid 3px #808080;
   border-bottom-width: 0;
@@ -121,17 +130,17 @@ body {
   position: absolute;
 }
 
-#selected.powerchoice > *:not(.warningsign),
-*:has(~ #selected.powerchoice) > *:not(.warningsign),
-#selected.powerchoice ~ * > *:not(.warningsign) {
+#selected.powerchoice > *:is(.powerchoicetext, .typechoicetext),
+*:has(~ #selected.powerchoice) > *:is(.powerchoicetext, .typechoicetext),
+#selected.powerchoice ~ * > *:is(.powerchoicetext, .typechoicetext) {
   margin-top: 32px;
 }
 
-*:has(~ #selected) > *:not(.warningsign):not(#power1, #type1) {
+*:has(~ #selected) > *:is(.powerchoicetext, .typechoicetext):not(#power1, #type1) {
   border-right-width: 0;
 }
 
-#selected ~ * > *:not(.warningsign):not(#power3, #type3) {
+#selected ~ * > *:is(.powerchoicetext, .typechoicetext):not(#power3, #type3) {
   border-left-width: 0;
 }
 
@@ -143,7 +152,7 @@ body {
   border-top-right-radius: 10px;
 }
 
-#selected > *:not(.warningsign) {
+#selected > *:is(.powerchoicetext, .typechoicetext) {
   border-radius: 10px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -157,6 +166,10 @@ body {
 *:has(> * > *:is(*:hover), > * > #selected) ~ .herbapane > *:not(*:is(*:hover)) > *:not(.checkmark),
 .selectionwrapper:hover ~ * > *:not(.checkmark), *:has(~ .selectionwrapper:hover) > *:not(.checkmark) {
   opacity: 0.5;
+}
+
+*:has(> #selected) ~ * > .typechoice > .hoverarea {
+  pointer-events: none;
 }
 
 .selectionwrapper:hover, .powerchoice:hover, .typechoice:hover {
@@ -264,6 +277,7 @@ body {
   border: outset 3px #808080;
   border-radius: 10px;
   padding: 4px;
+  pointer-events: none;
 }
 
 .filling {
