@@ -1,5 +1,6 @@
 # Sandwich Lookup - Pokémon Scarlet/Violet
-[psandwich.io](https://psandwich.io)
+~~psandwich.io~~
+[complexrobot.github.io/sandwich/](https://complexrobot.github.io/sandwich/)
 
 ![](/sandwich/screenshots/example.png)
 
